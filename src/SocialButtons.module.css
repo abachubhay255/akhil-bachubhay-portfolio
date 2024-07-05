@@ -1,0 +1,8 @@
+.socialButton {
+  background-color: var(--mantine-color-dark-7);
+  color: #fff;
+
+  &:hover {
+    background-color: var(--mantine-color-dark-6);
+  }
+}

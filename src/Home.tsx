@@ -1,32 +1,52 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import { Button } from "@mantine/core";
+import {
+  AppShell,
+  Burger,
+  Container,
+  Group,
+  Stack,
+  Title,
+} from "@mantine/core";
+import { useDisclosure } from "@mantine/hooks";
+import { SocialButtons } from "./SocialButtons";
 
 export function Home() {
-  const [count, setCount] = useState(0);
+  const [opened, { toggle }] = useDisclosure();
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <Button variant="light" onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </Button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <AppShell
+      header={{ height: 75 }}
+      aside={{
+        width: 300,
+        breakpoint: "sm",
+        collapsed: { desktop: true, mobile: !opened },
+      }}
+      padding="md"
+    >
+      <AppShell.Header bg="dark.9">
+        <Container
+          display="flex"
+          size="md"
+          h="100%"
+          style={{ alignItems: "center" , justifyContent: "space-between" }}
+        >
+          <Title order={3}>Akhil Bachubhay Portfolio</Title>
+          <Group visibleFrom="sm">
+            <SocialButtons />
+          </Group>
+          <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
+        </Container>
+      </AppShell.Header>
+
+      <AppShell.Aside bg="dark.9" py="md" px={4}>
+        <Stack gap="xs">
+          <SocialButtons />
+        </Stack>
+      </AppShell.Aside>
+
+      <AppShell.Main>
+        Navbar is only visible on mobile, links that are rendered in the header
+        on desktop are hidden on mobile in header and rendered in navbar
+        instead.
+      </AppShell.Main>
+    </AppShell>
   );
 }
