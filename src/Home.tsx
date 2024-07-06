@@ -1,52 +1,36 @@
-import {
-  AppShell,
-  Burger,
-  Container,
-  Group,
-  Stack,
-  Title,
-} from "@mantine/core";
-import { useDisclosure } from "@mantine/hooks";
-import { SocialButtons } from "./SocialButtons";
+import { Title, Box, Stack, useMantineTheme, getGradient } from "@mantine/core";
+import { Intro } from "./Intro";
+import { Skills } from "./Skills";
 
 export function Home() {
-  const [opened, { toggle }] = useDisclosure();
   return (
-    <AppShell
-      header={{ height: 75 }}
-      aside={{
-        width: 300,
-        breakpoint: "sm",
-        collapsed: { desktop: true, mobile: !opened },
-      }}
-      padding="md"
-    >
-      <AppShell.Header bg="dark.9">
-        <Container
-          display="flex"
-          size="md"
-          h="100%"
-          style={{ alignItems: "center" , justifyContent: "space-between" }}
-        >
-          <Title order={3}>Akhil Bachubhay Portfolio</Title>
-          <Group visibleFrom="sm">
-            <SocialButtons />
-          </Group>
-          <Burger opened={opened} onClick={toggle} hiddenFrom="sm" size="sm" />
-        </Container>
-      </AppShell.Header>
+    <>
+      <Intro />
+      <Stack gap="xl">
+        <SectionTitle title="Projects" />
+        <SectionTitle title="Skills" />
+        <Skills />
+        <SectionTitle title="Experience" />
+      </Stack>
+    </>
+  );
+}
 
-      <AppShell.Aside bg="dark.9" py="md" px={4}>
-        <Stack gap="xs">
-          <SocialButtons />
-        </Stack>
-      </AppShell.Aside>
-
-      <AppShell.Main>
-        Navbar is only visible on mobile, links that are rendered in the header
-        on desktop are hidden on mobile in header and rendered in navbar
-        instead.
-      </AppShell.Main>
-    </AppShell>
+function SectionTitle({ title }: { title: string }) {
+  const theme = useMantineTheme();
+  return (
+    <Box>
+      <Title order={2} size={30} mb="sm" ta="center">
+        {title}
+      </Title>
+      <Box
+        ml="auto"
+        mr="auto"
+        bg={getGradient({ deg: 90, from: "blue", to: "cyan" }, theme)}
+        h={5}
+        w="25%"
+        style={{ borderRadius: 100 }}
+      />
+    </Box>
   );
 }
