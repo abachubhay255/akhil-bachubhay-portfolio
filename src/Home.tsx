@@ -1,6 +1,7 @@
 import { Title, Box, Stack, useMantineTheme, getGradient } from "@mantine/core";
 import { Intro } from "./Intro";
 import { Skills } from "./Skills";
+import { Experience } from "./Experience";
 
 export function Home() {
   return (
@@ -11,6 +12,7 @@ export function Home() {
         <SectionTitle title="Skills" />
         <Skills />
         <SectionTitle title="Experience" />
+        <Experience />
       </Stack>
     </>
   );
