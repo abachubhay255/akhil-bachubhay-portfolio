@@ -2,19 +2,19 @@ import { Title, Box, Stack, useMantineTheme, getGradient } from "@mantine/core";
 import { Intro } from "./Intro";
 import { Skills } from "./Skills";
 import { Experience } from "./Experience";
+import { Contact } from "./Contact";
 
 export function Home() {
   return (
-    <>
+    <Stack gap="xl">
       <Intro />
-      <Stack gap="xl">
-        <SectionTitle title="Projects" />
-        <SectionTitle title="Skills" />
-        <Skills />
-        <SectionTitle title="Experience" />
-        <Experience />
-      </Stack>
-    </>
+      <SectionTitle title="Projects" />
+      <SectionTitle title="Skills" />
+      <Skills />
+      <SectionTitle title="Experience" />
+      <Experience />
+      <Contact />
+    </Stack>
   );
 }
 
