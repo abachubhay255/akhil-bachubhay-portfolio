@@ -111,7 +111,11 @@ function ContactIcon({
 const data = [
   { title: "Email", description: "abachubhay255@gmail.com", icon: IconAt },
   { title: "Location", description: "New York, NY", icon: IconMapPin },
-  { title: "Contact hours", description: "10 a.m. – 11 p.m. ET", icon: IconSun },
+  {
+    title: "Contact hours",
+    description: "10 a.m. – 11 p.m. ET",
+    icon: IconSun,
+  },
 ];
 
 export function ContactIconsList() {

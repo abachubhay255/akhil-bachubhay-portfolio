@@ -14,7 +14,7 @@ export function AppShell() {
   const [opened, { toggle }] = useDisclosure();
   return (
     <MantineAppShell
-      header={{ height: 75 }}
+      header={{ height: HEADER_HEIGHT }}
       aside={{
         width: 300,
         breakpoint: "sm",
@@ -51,3 +51,5 @@ export function AppShell() {
     </MantineAppShell>
   );
 }
+
+export const HEADER_HEIGHT = 75;

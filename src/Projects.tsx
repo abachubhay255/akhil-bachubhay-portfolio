@@ -1,5 +1,5 @@
 import { Badge, Card, Group, Button, Text, SimpleGrid } from "@mantine/core";
-import { IconBrandGithub } from "@tabler/icons-react";
+import { IconBarbell, IconBrandGithub, IconMovie } from "@tabler/icons-react";
 
 export function Projects() {
   return (
@@ -16,9 +16,10 @@ type Project = {
   description: string;
   skills: string[];
   src: string;
+  icon: React.ReactNode;
 };
 
-function BadgeCard({ title, description, skills, src }: Project) {
+function BadgeCard({ title, description, skills, src, icon }: Project) {
   const technologies = skills.map((skill, i) => (
     <Badge key={skill} variant="light" color={i % 2 === 0 ? "gray" : "blue"}>
       {skill}
@@ -35,6 +36,7 @@ function BadgeCard({ title, description, skills, src }: Project) {
         h="100%"
       >
         <Group justify="apart">
+          {icon}
           <Text fz="lg" fw={500}>
             {title}
           </Text>
@@ -77,6 +79,7 @@ const data = [
       "Developed a dynamic front-end mobile application designed as a fitness-centric social media platform. This project features user-generated posts, comprehensive profile management, and real-time messaging to foster community engagement and support among fitness enthusiasts.",
     skills: ["React Native", "TypeScript", "Javascript", "UI Kitten"],
     src: "https://github.com/abachubhay255/GymBro",
+    icon: <IconBarbell />,
   },
   {
     title: "Movie Paradise",
@@ -90,6 +93,7 @@ const data = [
       "MongoDB",
       "JWT",
     ],
-    src: "https://github.com/abachubhay255/GymBro",
+    src: "https://github.com/abachubhay255/MovieParadiseProject",
+    icon: <IconMovie />,
   },
 ];

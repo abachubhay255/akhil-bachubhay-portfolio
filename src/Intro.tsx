@@ -8,11 +8,20 @@ import {
   Text,
   Avatar,
 } from "@mantine/core";
-import { IconError404, IconMicrophone, IconTransform } from "@tabler/icons-react";
+import {
+  IconError404,
+  IconMicrophone,
+  IconTransform,
+} from "@tabler/icons-react";
 import classes from "./Intro.module.css";
 import profilepic from "/profilepic.jpg";
 
-export function Intro() {
+type IntroProps = {
+  onWorkClick: () => void;
+  onContactClick: () => void;
+};
+
+export function Intro({ onWorkClick, onContactClick }: IntroProps) {
   return (
     <div className={classes.inner}>
       <div className={classes.content}>
@@ -84,6 +93,7 @@ export function Intro() {
             radius="xl"
             size="md"
             className={classes.control}
+            onClick={onWorkClick}
           >
             Explore Work
           </Button>
@@ -92,6 +102,7 @@ export function Intro() {
             radius="xl"
             size="md"
             className={classes.control}
+            onClick={onContactClick}
           >
             Contact Me
           </Button>
