@@ -3,12 +3,14 @@ import { Intro } from "./Intro";
 import { Skills } from "./Skills";
 import { Experience } from "./Experience";
 import { Contact } from "./Contact";
+import { Projects } from "./Projects";
 
 export function Home() {
   return (
     <Stack gap="xl">
       <Intro />
       <SectionTitle title="Projects" />
+      <Projects />
       <SectionTitle title="Skills" />
       <Skills />
       <SectionTitle title="Experience" />
