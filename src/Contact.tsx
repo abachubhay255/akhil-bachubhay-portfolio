@@ -125,30 +125,6 @@ export function Contact() {
             />
 
             <Group justify="flex-end" mt="md">
-              <Box mr="auto" w="70%">
-                {showNotification === "none" ? null : showNotification ===
-                  "bad" ? (
-                  <Alert
-                    icon={<IconAlertCircle size={20} />}
-                    color="red"
-                    title="Error Sending Message!"
-                    onClose={() => setShowNotification("none")}
-                    withCloseButton
-                    radius="lg"
-                    p={6}
-                  ></Alert>
-                ) : (
-                  <Alert
-                    icon={<IconCheck size={20} />}
-                    color="teal"
-                    title="Message Sent!"
-                    onClose={() => setShowNotification("none")}
-                    withCloseButton
-                    radius="lg"
-                    p={6}
-                  ></Alert>
-                )}
-              </Box>
               <Button
                 type="submit"
                 variant="gradient"
@@ -158,6 +134,28 @@ export function Contact() {
                 Send message
               </Button>
             </Group>
+            <Box mt="sm">
+              {showNotification === "none" ? null : showNotification ===
+                "bad" ? (
+                <Alert
+                  icon={<IconAlertCircle size={20} />}
+                  color="red"
+                  title="Error Sending Message!"
+                  onClose={() => setShowNotification("none")}
+                  withCloseButton
+                  radius="lg"
+                ></Alert>
+              ) : (
+                <Alert
+                  icon={<IconCheck size={20} />}
+                  color="teal"
+                  title="Message Sent!"
+                  onClose={() => setShowNotification("none")}
+                  withCloseButton
+                  radius="lg"
+                ></Alert>
+              )}
+            </Box>
           </div>
         </form>
       </div>

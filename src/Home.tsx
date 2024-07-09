@@ -41,6 +41,7 @@ export function Home() {
                 <IconArrowUp style={{ width: rem(16), height: rem(16) }} />
               }
               style={transitionStyles}
+              variant="gradient"
               onClick={() => scrollTo({ y: 0 })}
             >
               Scroll to top
