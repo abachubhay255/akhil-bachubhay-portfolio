@@ -15,13 +15,18 @@ export function Experience() {
   return (
     <Timeline ml="auto" mr="auto" bulletSize={45} active={100} color="dark">
       {experienceData.map(({ title, date, stats, src }) => (
-        <Timeline.Item title={title} bullet={<Avatar size={30} src={src} />}>
+        <Timeline.Item
+          key={title}
+          title={title}
+          bullet={<Avatar size={30} src={src} />}
+        >
           <Text size="xs" c="dimmed" mt={4}>
             {date}
           </Text>
           <SimpleGrid mt="lg" cols={{ base: 1, sm: 4 }}>
             {stats.map((stat) => (
               <StatCard
+                key={stat.title}
                 title={stat.title}
                 direction={stat.direction as "up" | "down"}
                 value={stat.value}

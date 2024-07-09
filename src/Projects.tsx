@@ -5,7 +5,7 @@ export function Projects() {
   return (
     <SimpleGrid cols={{ base: 1, sm: 2 }}>
       {data.map((d) => (
-        <BadgeCard {...d} />
+        <BadgeCard key={d.title} {...d} />
       ))}
     </SimpleGrid>
   );

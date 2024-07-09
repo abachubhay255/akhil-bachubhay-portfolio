@@ -11,12 +11,55 @@ import {
   rem,
   getGradient,
   useMantineTheme,
+  Alert,
 } from "@mantine/core";
 import classes from "./Contact.module.css";
-import { IconSun, IconAt, IconMapPin } from "@tabler/icons-react";
+import {
+  IconSun,
+  IconAt,
+  IconMapPin,
+  IconCheck,
+  IconAlertCircle,
+} from "@tabler/icons-react";
+import emailjs from "@emailjs/browser";
+import { useState } from "react";
+
+const SERVICE_ID = "serviceId";
+const TEMPLATE_ID = "emailTemplate";
 
 export function Contact() {
   const theme = useMantineTheme();
+
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("");
+  const [message, setMessage] = useState("");
+
+  const [showNotification, setShowNotification] = useState<
+    "none" | "good" | "bad"
+  >("none");
+
+  function sendEmail(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const templateParams = {
+      name: name,
+      email: email,
+      subject: subject,
+      message: message,
+    };
+
+    emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams).then(
+      (response) => {
+        console.log("SUCCESS!", response.status, response.text);
+        setShowNotification("good");
+      },
+      (error) => {
+        console.log("FAILED...", error);
+        setShowNotification("bad");
+      }
+    );
+  }
   return (
     <Paper
       ml="auto"
@@ -37,38 +80,80 @@ export function Contact() {
           <ContactIconsList />
         </Box>
 
-        <form
-          className={classes.form}
-          onSubmit={(event) => event.preventDefault()}
-        >
+        <form className={classes.form} onSubmit={(event) => sendEmail(event)}>
           <Text fz="lg" fw={700} className={classes.title}>
             Get in touch
           </Text>
 
           <div className={classes.fields}>
             <SimpleGrid cols={{ base: 1, sm: 2 }}>
-              <TextInput label="Name" placeholder="Peter Parker" />
+              <TextInput
+                label="Name"
+                placeholder="Peter Parker"
+                value={name}
+                onChange={(event) => setName(event.currentTarget.value)}
+                required
+              />
               <TextInput
                 label="Email"
                 placeholder="peter.parker@dailybugle.com"
+                value={email}
+                onChange={(event) => setEmail(event.currentTarget.value)}
                 required
               />
             </SimpleGrid>
 
-            <TextInput mt="md" label="Subject" placeholder="Subject" required />
+            <TextInput
+              mt="md"
+              label="Subject"
+              placeholder="Subject"
+              value={subject}
+              onChange={(event) => setSubject(event.currentTarget.value)}
+              required
+            />
 
             <Textarea
               mt="md"
               label="Message"
               placeholder="Please include all relevant information"
               minRows={3}
+              maxRows={6}
+              autosize
+              value={message}
+              onChange={(event) => setMessage(event.currentTarget.value)}
+              required
             />
 
             <Group justify="flex-end" mt="md">
+              <Box mr="auto" w="70%">
+                {showNotification === "none" ? null : showNotification ===
+                  "bad" ? (
+                  <Alert
+                    icon={<IconAlertCircle size={20} />}
+                    color="red"
+                    title="Error Sending Message!"
+                    onClose={() => setShowNotification("none")}
+                    withCloseButton
+                    radius="lg"
+                    p={6}
+                  ></Alert>
+                ) : (
+                  <Alert
+                    icon={<IconCheck size={20} />}
+                    color="teal"
+                    title="Message Sent!"
+                    onClose={() => setShowNotification("none")}
+                    withCloseButton
+                    radius="lg"
+                    p={6}
+                  ></Alert>
+                )}
+              </Box>
               <Button
                 type="submit"
                 variant="gradient"
                 className={classes.control}
+                disabled={showNotification === "good"}
               >
                 Send message
               </Button>

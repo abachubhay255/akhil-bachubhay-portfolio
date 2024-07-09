@@ -23,6 +23,7 @@ export function Skills() {
             size="xl"
             variant="light"
             color={i % 2 === 0 ? "gray" : "blue"}
+            key={skill}
           >
             {skill}
           </Badge>
