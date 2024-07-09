@@ -12,6 +12,8 @@ import {
   getGradient,
   useMantineTheme,
   Alert,
+  Loader,
+  Center,
 } from "@mantine/core";
 import classes from "./Contact.module.css";
 import {
@@ -35,12 +37,15 @@ export function Contact() {
   const [subject, setSubject] = useState("");
   const [message, setMessage] = useState("");
 
+  const [isLoading, setIsLoading] = useState(false);
+
   const [showNotification, setShowNotification] = useState<
     "none" | "good" | "bad"
   >("none");
 
   function sendEmail(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    setIsLoading(true);
 
     const templateParams = {
       name: name,
@@ -49,16 +54,19 @@ export function Contact() {
       message: message,
     };
 
-    emailjs.send(SERVICE_ID, TEMPLATE_ID, templateParams).then(
-      (response) => {
-        console.log("SUCCESS!", response.status, response.text);
-        setShowNotification("good");
-      },
-      (error) => {
-        console.log("FAILED...", error);
-        setShowNotification("bad");
-      }
-    );
+    emailjs
+      .send(SERVICE_ID, TEMPLATE_ID, templateParams)
+      .then(
+        (response) => {
+          console.log("SUCCESS!", response.status, response.text);
+          setShowNotification("good");
+        },
+        (error) => {
+          console.log("FAILED...", error);
+          setShowNotification("bad");
+        }
+      )
+      .finally(() => setIsLoading(false));
   }
   return (
     <Paper
@@ -134,7 +142,8 @@ export function Contact() {
                 Send message
               </Button>
             </Group>
-            <Box mt="sm">
+            <Center mt="sm">
+              {isLoading && <Loader color="blue" type="bars" />}
               {showNotification === "none" ? null : showNotification ===
                 "bad" ? (
                 <Alert
@@ -155,7 +164,7 @@ export function Contact() {
                   radius="lg"
                 ></Alert>
               )}
-            </Box>
+            </Center>
           </div>
         </form>
       </div>
