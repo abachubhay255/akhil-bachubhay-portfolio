@@ -5,7 +5,7 @@
   padding: rem(4px);
   border: rem(1px) solid var(--mantine-color-dark-8);
 
-  @media (max-width: var(--mantine-breakpoint-sm)) {
+  @media (max-width: 48em) {
     flex-direction: column;
   }
 }
