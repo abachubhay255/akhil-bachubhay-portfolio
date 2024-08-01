@@ -58,6 +58,7 @@ const backEndSkills = [
   "MongoDB",
   "Grails",
   "Kafka",
+  "SQL"
 ];
 
 const languages = [
