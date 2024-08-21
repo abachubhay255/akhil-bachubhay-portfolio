@@ -38,7 +38,7 @@ export function Intro({ onWorkClick, onContactClick }: IntroProps) {
           .
         </Title>
         <Text c="dimmed" mt="md">
-          I'm a passionate Full Stack Developer with 3 years of professional
+          I'm a passionate Full Stack Software Engineer with 3 years of professional
           experience in crafting robust software solutions. I specialize in
           enhancing UI/UX and optimizing performance. My commitment to
           delivering scalable and maintainable code ensures top-quality results
