@@ -42,7 +42,7 @@ export function Experience() {
 
 const experienceData = [
   {
-    title: "Full Stack Developer, Avanade",
+    title: "Full Stack Software Engineer, Avanade",
     date: "Nov 2021 - Present",
     src: avanade,
     stats: [
@@ -90,7 +90,7 @@ const experienceData = [
     ],
   },
   {
-    title: "Software Developer, SAS",
+    title: "Software Engineer, SAS",
     date: "May 2019 - Nov 2021",
     src: sas,
     stats: [
