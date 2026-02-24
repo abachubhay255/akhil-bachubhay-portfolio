@@ -53,11 +53,11 @@ const backEndSkills = [
   "Node.js",
   "Azure",
   "GraphQL",
-  "Express.js",
+  "Drizzle",
+  "PostgreSQL",
   "Docker",
+  "Express.js",
   "MongoDB",
-  "Grails",
-  "Kafka",
   "SQL"
 ];
 

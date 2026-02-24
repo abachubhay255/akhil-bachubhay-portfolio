@@ -9,12 +9,13 @@ import {
   Avatar,
 } from "@mantine/core";
 import {
-  IconError404,
-  IconMicrophone,
-  IconTransform,
+  IconBulb,
+  IconCrown,
+  IconPresentation,
+  IconUsers,
 } from "@tabler/icons-react";
 import classes from "./Intro.module.css";
-import profilepic from "/profilepic.jpg";
+import profilepic from "/profilepicture.jpg";
 
 type IntroProps = {
   onWorkClick: () => void;
@@ -38,52 +39,64 @@ export function Intro({ onWorkClick, onContactClick }: IntroProps) {
           .
         </Title>
         <Text c="dimmed" mt="md">
-          I'm a passionate Full Stack Software Engineer with 3 years of professional
-          experience in crafting robust software solutions. I specialize in
-          enhancing UI/UX and optimizing performance. My commitment to
-          delivering scalable and maintainable code ensures top-quality results
-          for every project.
+          I'm a Full Stack Software Engineer with 5+ years of professional
+          experience in designing and developing robust software solutions.
+          Dedicated to enhancing user experience and optimizing API performance
+          through scalable, maintainable code.
         </Text>
 
         <List mt={30} spacing="md" size="sm">
           <List.Item
             icon={
               <ThemeIcon variant="gradient" size="sm" radius="xl">
-                <IconError404
+                <IconCrown
                   style={{ width: rem(16), height: rem(16) }}
                   stroke={1.5}
                 />
               </ThemeIcon>
             }
           >
-            <b>Problem Solving</b> – I use analytical thinking to debug issues
-            and develop efficient solutions.
+            <b>Technical Leadership</b> – I drive architecture decisions and
+            mentor teammates to deliver high-quality solutions.
           </List.Item>
           <List.Item
             icon={
               <ThemeIcon variant="gradient" size="sm" radius="xl">
-                <IconMicrophone
+                <IconUsers
                   style={{ width: rem(16), height: rem(16) }}
                   stroke={1.5}
                 />
               </ThemeIcon>
             }
           >
-            <b>Communication</b> – I communicate clearly, collaborate
-            effectively, and document code thoroughly.
+            <b>Cross-functional Collaboration</b> – I work effectively across
+            teams to align engineering efforts with business goals.
           </List.Item>
           <List.Item
             icon={
               <ThemeIcon variant="gradient" size="sm" radius="xl">
-                <IconTransform
+                <IconPresentation
                   style={{ width: rem(16), height: rem(16) }}
                   stroke={1.5}
                 />
               </ThemeIcon>
             }
           >
-            <b>Adaptability</b> – I adapt to new tools, technologies, and
-            methodologies in a fast-evolving tech environment.
+            <b>Stakeholder Management</b> – I communicate clearly with
+            stakeholders to translate requirements into impactful features.
+          </List.Item>
+          <List.Item
+            icon={
+              <ThemeIcon variant="gradient" size="sm" radius="xl">
+                <IconBulb
+                  style={{ width: rem(16), height: rem(16) }}
+                  stroke={1.5}
+                />
+              </ThemeIcon>
+            }
+          >
+            <b>Analytical Problem Solving</b> – I apply data-driven thinking
+            to debug issues and optimize system performance.
           </List.Item>
         </List>
 

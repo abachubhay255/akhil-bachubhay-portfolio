@@ -47,13 +47,13 @@ const experienceData = [
     src: avanade,
     stats: [
       {
-        title: "Azure Resource Graph Nodes",
+        title: "Tree Node Rendering",
         direction: "up",
         value: "1,000,000+",
         description: (
           <Text c="dimmed" fz="sm">
-            <Metric value="5x" /> increase, allowed onboarding of{" "}
-            <Metric value="10+" /> new clients
+            Onboarded <Metric value="10+" /> new enterprises through a{" "}
+            <Metric value="5x" /> increase in rendering capabilities
           </Text>
         ),
       },
@@ -63,27 +63,51 @@ const experienceData = [
         value: "15+",
         description: (
           <Text c="dimmed" fz="sm">
-            Enhanced data visualization and user customization
+            Comprehensive dashboarding UI, strengthening data visualization and
+            user interaction
           </Text>
         ),
       },
       {
-        title: "Record Operation Time",
+        title: "User Onboarding Time",
         direction: "down",
-        value: "90%",
+        value: "30%",
         description: (
           <Text c="dimmed" fz="sm">
-            Minimized error rate to <Metric value="<1%" isRed />
+            Azure AI Foundry chatbot, <Metric value="25%" /> faster dashboard
+            authoring
           </Text>
         ),
       },
       {
-        title: "API Search Performance",
+        title: "Query Performance",
         direction: "up",
-        value: "300%",
+        value: "40%",
         description: (
           <Text c="dimmed" fz="sm">
-            Optimized data retrieval processes
+            Azure PostgreSQL data layer, <Metric value="25%" isRed /> memory
+            reduction
+          </Text>
+        ),
+      },
+      {
+        title: "i18n Accessibility",
+        direction: "up",
+        value: "8+ Clients",
+        description: (
+          <Text c="dimmed" fz="sm">
+            Led internationalization pipeline, aiding accessibility across
+            regions
+          </Text>
+        ),
+      },
+      {
+        title: "Expression Processing",
+        direction: "up",
+        value: "25%",
+        description: (
+          <Text c="dimmed" fz="sm">
+            Coding copilot capabilities via Azure OpenAI
           </Text>
         ),
       },
@@ -91,7 +115,7 @@ const experienceData = [
   },
   {
     title: "Software Engineer, SAS",
-    date: "May 2019 - Nov 2021",
+    date: "Intern 2019/20, May 2021 - Nov 2021",
     src: sas,
     stats: [
       {
@@ -100,7 +124,7 @@ const experienceData = [
         value: "5,000,000+",
         description: (
           <Text c="dimmed" fz="sm">
-            Stress tested SAS Talon via RESTful services
+            Generated via intuitive UIs and RESTful services
           </Text>
         ),
       },
@@ -110,19 +134,17 @@ const experienceData = [
         value: "50%",
         description: (
           <Text c="dimmed" fz="sm">
-            Reduced barriers to entry for new users,{" "}
-            <Metric value="50+" isRed /> major bug fixes
+            Patched <Metric value="50+" /> major bugs, efficient stress testing
           </Text>
         ),
       },
       {
-        title: "Data Creation Rate",
+        title: "Application Performance",
         direction: "up",
-        value: "500%",
+        value: "20%",
         description: (
           <Text c="dimmed" fz="sm">
-            Developed intuitive SPA, <Metric value="12%" /> increase in data
-            accuracy
+            Code refactoring and Azure Storage Queues integration
           </Text>
         ),
       },

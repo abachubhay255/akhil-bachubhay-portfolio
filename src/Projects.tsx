@@ -108,10 +108,9 @@ const data = [
   {
     title: "Redzone Insights",
     bullets: [
-      "Developed an NFL stats and betting app.",
-      "Integrated real-time scores, detailed standings, and a unique parlays section.",
-      "Implemented player projections powered by OpenAI API.",
-      "Deployed on Azure Web Apps and uses Azure Blob Storage for caching.",
+      "Integrated real-time scores, detailed standings, and a simple parlays section into an NFL stats and betting app.",
+      "Implemented 300+ player projections powered by the OpenAI API, providing advanced analytics and insights.",
+      "Deployed on Azure Web Apps and utilized Azure Blob Storage for caching, efficiently managing player data.",
     ],
     skills: [
       "TypeScript",
@@ -131,9 +130,8 @@ const data = [
   {
     title: "GymBro",
     bullets: [
-      "Developed a fitness-centric social media mobile app.",
-      "Implemented features such as user-generated posts, profile management, and real-time messaging.",
-      "Designed an intuitive and engaging user interface with UI Kitten.",
+      "Designed and developed a mobile application for a fitness-based social media platform.",
+      "Built core features including home feed, user profiles, messaging, and interactive UI components.",
     ],
     skills: ["React Native", "TypeScript", "Javascript", "UI Kitten"],
     src: "https://github.com/abachubhay255/GymBro",
